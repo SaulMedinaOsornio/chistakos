@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHISTAKOS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!-- Audio de fondo -->
+    <audio
+      id="audio-fondo"
+      src="audio/W&W - OIIA OIIA (Spinning Cat).mp3"
+      loop
+      autoplay
+    ></audio>
+    <!-- Header -->
+    <header class="bg-light p-3 border-bottom position-relative">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between">
+          <h2 class="mb-0">CHISTAKOS</h2>
+          <form class="d-flex ms-3 flex-grow-1" style="max-width: 400px">
+            <div class="rgb-glow-wrapper w-100 position-relative">
+              <span class="search-icon"
+                ><svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242 1.106a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"
+                  /></svg
+              ></span>
+              <input
+                id="search-input"
+                class="form-control me-2 search-input"
+                type="search"
+                placeholder="Buscar chistes, videos o temas..."
+                aria-label="Buscar"
+              />
+              <button
+                type="button"
+                id="clear-search"
+                class="clear-search-btn"
+                style="display: none"
+                aria-label="Limpiar búsqueda"
+              >
+                ❌
+              </button>
+            </div>
+          </form>
+          <div class="d-flex align-items-center gap-2">
+            <button
+              id="btn-audio"
+              onclick="toggleAudio()"
+              class="btn btn-secondary btn-sm"
+            >
+              🔊 Apagar música
+            </button>
+            <button
+              id="btn-theme"
+              onclick="toggleTheme()"
+              class="btn btn-dark btn-sm"
+            >
+              🌙 Tema oscuro
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+      <div class="row">
+        <!-- Chistes y Videos -->
+        <div class="col-lg-8">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <!-- Video Chiste 1 -->
+              <div class="card video-chiste mb-3">
+                <div class="card-body text-center">
+                  <iframe
+                    width="100%"
+                    height="180"
+                    src="https://www.youtube.com/embed/VDPRczoyq2M"
+                    title="Gato cantando OIIA OIIA OIIA (Spinning Cat)"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+              <!-- Video Chiste 2 -->
+              <div class="card video-chiste mb-3">
+                <div class="card-body text-center">
+                  <iframe
+                    width="100%"
+                    height="180"
+                    src="https://www.youtube.com/embed/xIyuyuQ1Ef0"
+                    title="Gato cantando OIIA OIIA OIIA (Spinning Cat) 1 hora"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+              <!-- Video Chiste 3 -->
+              <div class="card video-chiste mb-3">
+                <div class="card-body text-center">
+                  <iframe
+                    width="100%"
+                    height="180"
+                    src="https://www.youtube.com/embed/ykeiYtcHfw4"
+                    title="Gato cantando OIIA OIIA OIIA (Spinning Cat) 10 horas"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <!-- Chiste 1 -->
+              <div class="card chiste mb-3">
+                <div
+                  class="card-body d-flex flex-column justify-content-between"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-2"
+                  >
+                    <h6 class="mb-0">Chiste de pájaros</h6>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <span
+                      >¿Por qué los pájaros no usan Facebook? Porque ya tienen
+                      Twitter.</span
+                    >
+                    <span class="d-flex flex-column align-items-end gap-1 ms-3">
+                      <button
+                        class="like-btn"
+                        style="
+                          color: #27ae60;
+                          font-size: 1.7rem;
+                          background: transparent;
+                          border: none;
+                        "
+                        aria-label="Me gusta"
+                      >
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </button>
+                      <button
+                        class="dislike-btn"
+                        style="
+                          color: #e74c3c;
+                          font-size: 1.7rem;
+                          background: transparent;
+                          border: none;
+                        "
+                        aria-label="No me gusta"
+                      >
+                        <i class="bi bi-hand-thumbs-down-fill"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Chiste 2 -->
+              <div class="card chiste mb-3">
+                <div
+                  class="card-body d-flex flex-column justify-content-between"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-2"
+                  >
+                    <h6 class="mb-0">Chiste de iguanas</h6>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <span
+                      >¿Qué le dice una iguana a su hermana gemela? Somos
+                      iguanitas.</span
+                    >
+                    <span class="d-flex flex-column align-items-end gap-1 ms-3">
+                      <button
+                        class="like-btn"
+                        style="
+                          color: #27ae60;
+                          font-size: 1.7rem;
+                          background: transparent;
+                          border: none;
+                        "
+                        aria-label="Me gusta"
+                      >
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </button>
+                      <button
+                        class="dislike-btn"
+                        style="
+                          color: #e74c3c;
+                          font-size: 1.7rem;
+                          background: transparent;
+                          border: none;
+                        "
+                        aria-label="No me gusta"
+                      >
+                        <i class="bi bi-hand-thumbs-down-fill"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Chiste 3 -->
+              <div class="card chiste mb-3">
+                <div
+                  class="card-body d-flex flex-column justify-content-between"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-2"
+                  >
+                    <h6 class="mb-0">Chiste de matemáticas</h6>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <span
+                      >¿Por qué el libro de matemáticas está triste? Porque
+                      tiene demasiados problemas.</span
+                    >
+                    <span class="d-flex flex-column align-items-end gap-1 ms-3">
+                      <button
+                        class="like-btn"
+                        style="
+                          color: #27ae60;
+                          font-size: 1.7rem;
+                          background: transparent;
+                          border: none;
+                        "
+                        aria-label="Me gusta"
+                      >
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </button>
+                      <button
+                        class="dislike-btn"
+                        style="
+                          color: #e74c3c;
+                          font-size: 1.7rem;
+                          background: transparent;
+                          border: none;
+                        "
+                        aria-label="No me gusta"
+                      >
+                        <i class="bi bi-hand-thumbs-down-fill"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Chiste 4 -->
+              <div class="card chiste mb-3">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Chiste de frutas</h6>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>¿Por qué la fresa nunca se siente sola? Porque siempre va en grupo.</span>
+                    <span class="d-flex flex-column align-items-end gap-1 ms-3">
+                      <button class="like-btn" style="color: #27ae60; font-size: 1.7rem; background: transparent; border: none;" aria-label="Me gusta">
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </button>
+                      <button class="dislike-btn" style="color: #e74c3c; font-size: 1.7rem; background: transparent; border: none;" aria-label="No me gusta">
+                        <i class="bi bi-hand-thumbs-down-fill"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Chiste 5 -->
+              <div class="card chiste mb-3">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Chiste de tecnología</h6>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>¿Por qué el ordenador fue al médico? Porque tenía un virus.</span>
+                    <span class="d-flex flex-column align-items-end gap-1 ms-3">
+                      <button class="like-btn" style="color: #27ae60; font-size: 1.7rem; background: transparent; border: none;" aria-label="Me gusta">
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </button>
+                      <button class="dislike-btn" style="color: #e74c3c; font-size: 1.7rem; background: transparent; border: none;" aria-label="No me gusta">
+                        <i class="bi bi-hand-thumbs-down-fill"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Chiste 6 -->
+              <div class="card chiste mb-3">
+                <div class="card-body d-flex flex-column justify-content-between">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">Chiste de animales</h6>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>¿Qué le dice un pez a otro pez? ¡Nada, nada!</span>
+                    <span class="d-flex flex-column align-items-end gap-1 ms-3">
+                      <button class="like-btn" style="color: #27ae60; font-size: 1.7rem; background: transparent; border: none;" aria-label="Me gusta">
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                      </button>
+                      <button class="dislike-btn" style="color: #e74c3c; font-size: 1.7rem; background: transparent; border: none;" aria-label="No me gusta">
+                        <i class="bi bi-hand-thumbs-down-fill"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Chat AI -->
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="chat-ai">
+            <h5>Chat AI</h5>
+            <div
+              class="mb-3"
+              id="chat-messages"
+              style="
+                height: 200px;
+                overflow-y: auto;
+                background: #fff;
+                border-radius: 5px;
+                border: 1px solid #dee2e6;
+                padding: 0.5rem;
+              "
+            >
+              <div class="msg-ai">¡Hola! ¿Quieres escuchar un chiste?</div>
+              <div class="msg-user">¡Sí, cuéntame uno!</div>
+              <div class="msg-ai">
+                ¿Por qué el tomate se puso rojo? <br />¡Porque vio a la ensalada
+                desnuda!
+              </div>
+            </div>
+            <form class="d-flex" onsubmit="enviarMensaje(event)">
+              <input
+                type="text"
+                class="form-control me-2"
+                id="input-mensaje"
+                placeholder="Escribe tu mensaje..."
+              />
+              <button class="btn btn-primary" type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3 border-top">
+      &copy; 2024 CHISTAKOS - Tu sitio de chistes y diversión. Todos los
+      derechos reservados.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      // Lógica para alternar tema claro/oscuro
+      function toggleTheme() {
+        const body = document.body;
+        const btn = document.getElementById("btn-theme");
+        body.classList.toggle("dark-theme");
+        if (body.classList.contains("dark-theme")) {
+          btn.innerHTML = "☀️ Tema claro";
+          btn.classList.remove("btn-dark");
+          btn.classList.add("btn-light");
+        } else {
+          btn.innerHTML = "🌙 Tema oscuro";
+          btn.classList.remove("btn-light");
+          btn.classList.add("btn-dark");
+        }
+      }
+    </script>
+  </body>
+</html>
